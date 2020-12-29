@@ -1,0 +1,8 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    # @see Here i can configure services User bounded context
+    # This file will be loaded by Kernel.php

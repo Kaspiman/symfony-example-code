@@ -1,0 +1,15 @@
+{
+  "message": "Username is invalid",
+  "errors": {
+    "type": "https://symfony.com/errors/validation",
+    "title": "Validation Failed",
+    "detail": "username: Username already exists",
+    "violations": [
+      {
+        "propertyPath": "username",
+        "title": "Username already exists",
+        "parameters": []
+      }
+    ]
+  }
+}

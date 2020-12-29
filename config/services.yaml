@@ -1,0 +1,24 @@
+parameters:
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    # @see Here i tagged interfaces
+    _instanceof:
+        App\Shared\Controller\Action:
+            tags: [ 'controller.service_arguments' ]
+
+        App\Shared\Application\Command\CommandHandler:
+            tags:
+                - { name: messenger.message_handler, bus: command.bus }
+
+        App\Shared\Application\Query\QueryHandler:
+            tags:
+                - { name: messenger.message_handler, bus: query.bus }
+
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/Kernel.php'

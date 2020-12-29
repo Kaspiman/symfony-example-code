@@ -1,0 +1,9 @@
+{
+  "id": "@integer@",
+  "username": "validUserName@gmail.com",
+  "createdAt": {
+    "date": "@string@.isDateTime()",
+    "timezone_type": "@integer@",
+    "timezone": "UTC"
+  }
+}

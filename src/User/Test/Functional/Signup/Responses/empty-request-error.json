@@ -1,0 +1,26 @@
+{
+  "message": "Message of type \"App\\User\\Application\\Command\\SignUpCommand\" failed validation.",
+  "errors": {
+    "type": "https://symfony.com/errors/validation",
+    "title": "Validation Failed",
+    "detail": "username: This value should not be blank.\npassword: This value should not be blank.",
+    "violations": [
+      {
+        "propertyPath": "username",
+        "title": "This value should not be blank.",
+        "parameters": {
+          "{{ value }}": "null"
+        },
+        "type": "urn:uuid:c1051bb4-d103-4f74-8988-acbcafc7fdc3"
+      },
+      {
+        "propertyPath": "password",
+        "title": "This value should not be blank.",
+        "parameters": {
+          "{{ value }}": "null"
+        },
+        "type": "urn:uuid:c1051bb4-d103-4f74-8988-acbcafc7fdc3"
+      }
+    ]
+  }
+}

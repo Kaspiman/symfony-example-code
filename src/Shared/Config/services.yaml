@@ -1,0 +1,13 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    App\Shared\Infrastructure\Bus\MessengerQueryBus:
+        arguments:
+            $messageBus: '@query.bus'
+
+    App\Shared\Infrastructure\Bus\MessengerCommandBus:
+        arguments:
+            $messageBus: '@command.bus'

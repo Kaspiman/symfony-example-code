@@ -1,0 +1,18 @@
+{
+  "message": "Username is invalid",
+  "errors": {
+    "type": "https://symfony.com/errors/validation",
+    "title": "Validation Failed",
+    "detail": "username: Username is not valid email",
+    "violations": [
+      {
+        "propertyPath": "username",
+        "title": "Username is not valid email",
+        "parameters": {
+          "{{ value }}": "\"wrongUserName\""
+        },
+        "type": "urn:uuid:bd79c0ab-ddba-46cc-a703-a7a4b08de310"
+      }
+    ]
+  }
+}

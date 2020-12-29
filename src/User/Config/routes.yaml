@@ -1,0 +1,4 @@
+users:
+    resource: '../Controller/'
+    type: annotation
+    prefix: '/api/users'

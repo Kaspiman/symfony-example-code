@@ -1,0 +1,9 @@
+{
+  "id": 1,
+  "username": "valid@email.com",
+  "createdAt": {
+    "date": "@string@.isDateTime()",
+    "timezone_type": "@integer@",
+    "timezone": "UTC"
+  }
+}
