@@ -9,6 +9,8 @@ use App\User\Domain\Model\UserRepository;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Cache\CacheItem;
+use Symfony\Contracts\Cache\CacheInterface;
 
 /**
  * @method User|null findOneBy(array $criteria, array $orderBy = null)
@@ -19,10 +21,14 @@ final class DoctrineUserRepository extends ServiceEntityRepository implements Us
 {
     private EntityManagerInterface $entityManager;
 
-    public function __construct(ManagerRegistry $registry, EntityManagerInterface $entityManager)
+    private CacheInterface $pool;
+
+    public function __construct(ManagerRegistry $registry, EntityManagerInterface $entityManager, CacheInterface $pool)
     {
-        $this->entityManager = $entityManager;
         parent::__construct($registry, User::class);
+
+        $this->pool = $pool;
+        $this->entityManager = $entityManager;
     }
 
     public function findById(int $id): ?User
@@ -39,5 +45,17 @@ final class DoctrineUserRepository extends ServiceEntityRepository implements Us
     {
         // @see we do not have to $entityManager->flush($user) because we used transactional middleware
         $this->entityManager->persist($user);
+    }
+
+    public function getCachedBoolValue(): bool
+    {
+        return $this->pool->get(
+            'user.magic.number',
+            function (CacheItem $item) {
+                $item->expiresAfter(10);
+
+                return true;
+            }
+        );
     }
 }

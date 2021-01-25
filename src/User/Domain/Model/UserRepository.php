@@ -14,4 +14,9 @@ interface UserRepository
     public function findByUsername(string $username): ?User;
 
     public function save(User $user): void;
+
+    /*
+     * @TODO remove after learning cache component
+     */
+    public function getCachedBoolValue(): bool;
 }

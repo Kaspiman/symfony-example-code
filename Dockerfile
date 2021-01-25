@@ -16,9 +16,11 @@ RUN apk --no-cache add --virtual .build \
         libzip-dev \
         openssh
 
+RUN pecl install redis
+
 RUN docker-php-ext-install -j$(nproc) opcache pdo_mysql pcntl
 
-RUN docker-php-ext-enable opcache && docker-php-source delete
+RUN docker-php-ext-enable opcache redis && docker-php-source delete
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 

@@ -42,6 +42,16 @@ class UsernameValidator
                             }
                         }
                     ),
+                    new Assert\Callback(
+                        function ($value, ExecutionContextInterface $context) {
+                            // @TODO remove
+                            if (!$this->repository->getCachedBoolValue()) {
+                                $context
+                                    ->buildViolation('Cached value false!')
+                                    ->addViolation();
+                            }
+                        }
+                    ),
                 ]
             )
             ->getViolations();

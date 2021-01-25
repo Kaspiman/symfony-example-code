@@ -2,7 +2,7 @@
 
 ## Comments
 
-I placed some comments in important places, let's find it in whole project by keyword `@see`.
+I placed some comments in code, let's find it in whole project by keyword `@see`
 
 ## Project architecture and structure
 
@@ -40,6 +40,7 @@ Patterns were used:
 Feel free to tell me to use it again. I thought that he would be superfluous. The Simplest event subscribers are much better.
 
 * `symfony/messenger` for CQRS
+* `symfony/phpunit-bridge` - for simplest testing
 * `dama/doctrine-test-bundle` - transactional rollback for every test
 * `lchrusciel/api-test-case` - convenient testing for API
 
